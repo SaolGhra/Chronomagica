@@ -1,3 +1,6 @@
 {
-  "item.chronomagica.sapphire": "Sapphire"
+  "item.chronomagica.sapphire": "Sapphire",
+  "item.chronomagica.raw_sapphire": "Raw Sapphire",
+
+  "creativetab.chronomagica_tab": "Chronomagica"
 }

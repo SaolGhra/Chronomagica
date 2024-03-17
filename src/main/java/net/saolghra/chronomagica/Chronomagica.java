@@ -14,6 +14,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.saolghra.chronomagica.item.ModCreativeModeTabs;
 import net.saolghra.chronomagica.item.ModItems;
 import org.slf4j.Logger;
 
@@ -27,6 +28,8 @@ public class Chronomagica {
     private static final Logger LOGGER = LogUtils.getLogger();
     public Chronomagica() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
 
@@ -42,6 +45,7 @@ public class Chronomagica {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SAPPHIRE);
+            event.accept(ModItems.RAW_SAPPHIRE);
         }
     }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
