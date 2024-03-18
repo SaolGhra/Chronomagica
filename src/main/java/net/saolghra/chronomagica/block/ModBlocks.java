@@ -21,6 +21,8 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Chronomagica.MOD_ID);
 
+    // All registers for Sapphire
+
     // Registers Raw Sapphire Block
     public static final RegistryObject<Block> RAW_SAPPHIRE_BLOCK = registerBlock("raw_sapphire_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.AMETHYST)));
@@ -48,6 +50,36 @@ public class ModBlocks {
     public static final RegistryObject<Block> END_STONE_SAPPHIRE_ORE = registerBlock("end_stone_sapphire_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.END_STONE)
                     .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
+
+    // All registers for Chrona
+
+    // Registers Chrona Ore (overworld)
+    public static final RegistryObject<Block> CHRONA_ORE = registerBlock("chrona_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
+                    .strength(4f).requiresCorrectToolForDrops(), UniformInt.of(3, 6)));
+
+    // Registers Chrona Ore (deepslate)
+    public static final RegistryObject<Block> DEEPSLATE_CHRONA_ORE = registerBlock("deepslate_chrona_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE)
+                    .strength(5f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
+
+    // Registers Chrona Ore (NETHER)
+    public static final RegistryObject<Block> NETHER_CHRONA_ORE = registerBlock("nether_chrona_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.NETHERRACK)
+                    .strength(2f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
+
+    // Registers Chrona Ore (end)
+    public static final RegistryObject<Block> END_STONE_CHRONA_ORE = registerBlock("end_stone_chrona_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.END_STONE)
+                    .strength(8f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
+
+    // Registers Raw Sapphire Block
+    public static final RegistryObject<Block> RAW_CHRONA_BLOCK = registerBlock("raw_chrona_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    // Registers Sapphire Block
+    public static final RegistryObject<Block> CHRONA_BLOCK = registerBlock("chrona_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
 
     // Adds functionality to register the block to the game
