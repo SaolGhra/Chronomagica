@@ -2,13 +2,26 @@
   "item.chronomagica.sapphire": "Sapphire",
   "item.chronomagica.raw_sapphire": "Raw Sapphire",
 
+  "item.chronomagica.chrona": "Chrona",
+  "item.chronomagica.raw_chrona": "Raw Chrona",
+
+  "item.chronomagica.metal_detector": "Metal Detector",
+
   "block.chronomagica.sapphire_block": "Sapphire Block",
   "block.chronomagica.raw_sapphire_block": "Raw Sapphire Block",
+
+  "block.chronomagica.chrona_block": "Chrona Block",
+  "block.chronomagica.raw_chrona_block": "Raw Chrona Block",
 
   "block.chronomagica.sapphire_ore": "Sapphire Ore",
   "block.chronomagica.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
   "block.chronomagica.nether_sapphire_ore": "Nether Sapphire Ore",
   "block.chronomagica.end_stone_sapphire_ore": "Endstone Sapphire Ore",
+
+  "block.chronomagica.chrona_ore": "Chrona Ore",
+  "block.chronomagica.deepslate_chrona_ore": "Deepslate Chrona Ore",
+  "block.chronomagica.nether_chrona_ore": "Nether Chrona Ore",
+  "block.chronomagica.end_stone_chrona_ore": "Endstone Chrona Ore",
 
   "creativetab.chronomagica_tab": "Chronomagica"
 }

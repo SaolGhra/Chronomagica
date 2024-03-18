@@ -50,6 +50,8 @@ public class Chronomagica {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
             event.accept(ModItems.SAPPHIRE);
             event.accept(ModItems.RAW_SAPPHIRE);
+            event.accept(ModItems.CHRONA);
+            event.accept(ModItems.RAW_CHRONA);
         }
     }
     // You can use SubscribeEvent and let the Event Bus discover methods to call

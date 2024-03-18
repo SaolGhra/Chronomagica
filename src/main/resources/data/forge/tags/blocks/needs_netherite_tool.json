@@ -1,5 +1,10 @@
 {
   "values": [
-
+    "chronomagica:chrona_block",
+    "chronomagica:raw_chrona_block",
+    "chronomagica:chrona_ore",
+    "chronomagica:nether_chrona_ore",
+    "chronomagica:deepslate_chrona_ore",
+    "chronomagica:end_stone_chrona_ore"
   ]
 }

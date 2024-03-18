@@ -24,15 +24,26 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.SAPPHIRE.get());
                         pOutput.accept(ModItems.RAW_SAPPHIRE.get());
 
+                        pOutput.accept(ModItems.CHRONA.get());
+                        pOutput.accept(ModItems.RAW_CHRONA.get());
+
                         // Blocks
                         pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
+
+                        pOutput.accept(ModBlocks.CHRONA_BLOCK.get());
+                        pOutput.accept(ModBlocks.RAW_CHRONA_BLOCK.get());
 
                         // Ores
                         pOutput.accept(ModBlocks.SAPPHIRE_ORE.get());
                         pOutput.accept(ModBlocks.NETHER_SAPPHIRE_ORE.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get());
                         pOutput.accept(ModBlocks.END_STONE_SAPPHIRE_ORE.get());
+
+                        pOutput.accept(ModBlocks.CHRONA_ORE.get());
+                        pOutput.accept(ModBlocks.NETHER_CHRONA_ORE.get());
+                        pOutput.accept(ModBlocks.DEEPSLATE_CHRONA_ORE.get());
+                        pOutput.accept(ModBlocks.END_STONE_CHRONA_ORE.get());
 
                         // Custom Items
                         pOutput.accept(ModItems.METAL_DETECTOR.get());

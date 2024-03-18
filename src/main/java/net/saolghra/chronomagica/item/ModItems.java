@@ -20,6 +20,14 @@ public class ModItems {
     public static final RegistryObject<Item> RAW_SAPPHIRE = ITEMS.register("raw_sapphire",
             () -> new Item(new Item.Properties()));
 
+    // Adds a chrona item to the game
+    public static final RegistryObject<Item> CHRONA = ITEMS.register("chrona",
+            () -> new Item(new Item.Properties()));
+
+    // Adds the raw_chrona to the game.
+    public static final RegistryObject<Item> RAW_CHRONA = ITEMS.register("raw_chrona",
+            () -> new Item(new Item.Properties()));
+
     // Adds the metal detector to game
     public static final RegistryObject<Item> METAL_DETECTOR = ITEMS.register("metal_detector",
             () -> new MetalDetectorItem(new Item.Properties().durability(100)));
