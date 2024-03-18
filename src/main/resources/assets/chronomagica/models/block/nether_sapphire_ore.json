@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "chronomagica:block/nether_sapphire_ore"
+  }
+}
