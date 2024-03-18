@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "Sapphire",
+  "ingredients": [
+    {
+      "item": "chronomagica:chrona_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "chronomagica:chrona"
+  }
+}
