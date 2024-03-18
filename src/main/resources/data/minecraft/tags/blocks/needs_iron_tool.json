@@ -1,5 +1,10 @@
 {
   "values": [
-    
+    "chronomagica:sapphire_block",
+    "chronomagica:raw_sapphire_block",
+    "chronomagica:sapphire_ore",
+    "chronomagica:nether_sapphire_ore",
+    "chronomagica:deepslate_sapphire_ore",
+    "chronomagica:end_stone_sapphire_ore"
   ]
 }
