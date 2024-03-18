@@ -2,7 +2,8 @@
   "item.chronomagica.sapphire": "Sapphire",
   "item.chronomagica.raw_sapphire": "Raw Sapphire",
 
-  "block.chronomagica.sapphire_block": "Block of Sapphire",
+  "block.chronomagica.sapphire_block": "Sapphire Block",
+  "block.chronomagica.raw_sapphire_block": "Raw Sapphire Block",
 
   "creativetab.chronomagica_tab": "Chronomagica"
 }
