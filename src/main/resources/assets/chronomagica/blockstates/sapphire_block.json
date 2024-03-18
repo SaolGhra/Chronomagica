@@ -1,5 +1,7 @@
 {
-  "varients": {
-    "model": "chronomagica:block/sapphire_block"
+  "variants": {
+    "": {
+      "model": "chronomagica:block/sapphire_block"
+    }
   }
 }
