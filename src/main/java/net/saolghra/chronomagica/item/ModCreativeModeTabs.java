@@ -20,16 +20,22 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SAPPHIRE.get()))
                     .title(Component.translatable("creativetab.chronomagica_tab"))
                     .displayItems((pParameters, pOutput) -> {
+                        // Items
                         pOutput.accept(ModItems.SAPPHIRE.get());
                         pOutput.accept(ModItems.RAW_SAPPHIRE.get());
 
+                        // Blocks
                         pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
 
+                        // Ores
                         pOutput.accept(ModBlocks.SAPPHIRE_ORE.get());
                         pOutput.accept(ModBlocks.NETHER_SAPPHIRE_ORE.get());
                         pOutput.accept(ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get());
                         pOutput.accept(ModBlocks.END_STONE_SAPPHIRE_ORE.get());
+
+                        // Custom Items
+                        pOutput.accept(ModItems.METAL_DETECTOR.get());
                     })
                     .build());
 
