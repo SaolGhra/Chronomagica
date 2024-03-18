@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABA",
+    "#*#",
+    "A#A"
+  ],
+  "key": {
+    "#": {
+      "item": "chronomagica:chrona"
+    },
+    "A": {
+      "item": "minecraft:diamond"
+    },
+    "B": {
+      "item": "minecraft:nether_star"
+    },
+    "*": {
+      "item": "minecraft:clock"
+    }
+  },
+  "result": {
+    "item": "chronomagica:chrona_crystal"
+  }
+}

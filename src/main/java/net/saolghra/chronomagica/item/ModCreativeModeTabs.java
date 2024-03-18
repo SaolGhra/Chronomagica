@@ -47,6 +47,7 @@ public class ModCreativeModeTabs {
 
                         // Custom Items
                         pOutput.accept(ModItems.METAL_DETECTOR.get());
+                        pOutput.accept(ModItems.CHRONO_CRYSTAL.get());
                     })
                     .build());
 
