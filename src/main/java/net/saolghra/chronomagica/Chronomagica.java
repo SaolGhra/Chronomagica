@@ -30,8 +30,10 @@ public class Chronomagica {
     public Chronomagica() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        // Registers the Creative mode to the game
         ModCreativeModeTabs.register(modEventBus);
 
+        // Registers Items and blocks into the game.
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 

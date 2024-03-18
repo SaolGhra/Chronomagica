@@ -15,6 +15,7 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Chronomagica.MOD_ID);
 
+    // Registers specified items and blocks to the added creative mode tab.
     public static final RegistryObject<CreativeModeTab> CHRONOMAGICA_TAB = CREATIVE_MODE_TABS.register("chronomagica_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.SAPPHIRE.get()))
                     .title(Component.translatable("creativetab.chronomagica_tab"))
