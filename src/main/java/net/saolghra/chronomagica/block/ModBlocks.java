@@ -13,6 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.saolghra.chronomagica.Chronomagica;
+import net.saolghra.chronomagica.block.custom.SoundBlock;
 import net.saolghra.chronomagica.item.ModItems;
 
 import java.util.function.Supplier;
@@ -80,6 +81,10 @@ public class ModBlocks {
     // Registers Sapphire Block
     public static final RegistryObject<Block> CHRONA_BLOCK = registerBlock("chrona_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    // Registers Sapphire Block
+    public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
+            () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
 
     // Adds functionality to register the block to the game
