@@ -49,6 +49,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.METAL_DETECTOR.get());
                         pOutput.accept(ModItems.CHRONO_CRYSTAL.get());
                         pOutput.accept(ModBlocks.SOUND_BLOCK.get());
+
+                        // Foods
+                        pOutput.accept(ModItems.STRAWBERRY.get());
                     })
                     .build());
 

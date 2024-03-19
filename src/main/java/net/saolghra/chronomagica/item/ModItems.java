@@ -8,6 +8,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.saolghra.chronomagica.Chronomagica;
 import net.saolghra.chronomagica.item.custom.ChronoCrystalItem;
 import net.saolghra.chronomagica.item.custom.MetalDetectorItem;
+import net.saolghra.chronomagica.item.custom.ModFoods;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -36,6 +37,9 @@ public class ModItems {
     // Adds Chrono Crystal
     public static final RegistryObject<Item> CHRONO_CRYSTAL = ITEMS.register("chrono_crystal",
             () -> new ChronoCrystalItem(new Item.Properties().durability(500)));
+
+    public static final RegistryObject<Item> STRAWBERRY = ITEMS.register("strawberry",
+            () -> new Item(new Item.Properties().food(ModFoods.STRAWBERRY)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
