@@ -1,74 +1,77 @@
 package net.saolghra.chronomagica.item.custom;
 
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.InteractionResultHolder;
 
 import java.util.List;
-import java.util.Random;
 
 public class ChronoCrystalItem extends Item {
-    private static final int TIME_BUBBLE_RADIUS = 10; // Adjust the radius of the time bubble as needed
-    private static final double TIME_SLOW_FACTOR = 0.5; // Adjust the time slow factor as needed
+
+    public static final int DURABILITY = 500;
 
     public ChronoCrystalItem(Properties properties) {
-        super(properties);
+        super(properties.durability(DURABILITY));
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext context) {
-        Player player = context.getPlayer();
-        if (player != null) {
-            if (!context.getLevel().isClientSide()) {
-                createAndActivateTimeBubble(player);
-                player.playSound(SoundEvents.BELL_BLOCK, 1.0f, 1.0f); // Play ding sound
-                player.sendSystemMessage(Component.literal("Chrono Crystal activated!")); // Display message to player
-            }
-            return InteractionResult.SUCCESS;
-        }
-        return InteractionResult.PASS;
+    public UseAnim getUseAnimation(ItemStack stack) {
+        return UseAnim.BOW;
     }
 
-    private void createAndActivateTimeBubble(Player player) {
-        Level world = player.getCommandSenderWorld();
-        BlockPos playerPos = player.blockPosition();
-        List<Entity> entities = world.getEntities(player, new AABB(playerPos.offset(-TIME_BUBBLE_RADIUS, -TIME_BUBBLE_RADIUS, -TIME_BUBBLE_RADIUS),
-                playerPos.offset(TIME_BUBBLE_RADIUS + 1, TIME_BUBBLE_RADIUS + 1, TIME_BUBBLE_RADIUS + 1)));
+    @Override
+    public int getUseDuration(ItemStack stack) {
+        return 32;
+    }
 
-        // Spawn particle effects
-        Random random = new Random();
-        for (double x = playerPos.getX() - TIME_BUBBLE_RADIUS; x <= playerPos.getX() + TIME_BUBBLE_RADIUS; x += 1) {
-            for (double y = playerPos.getY() - TIME_BUBBLE_RADIUS; y <= playerPos.getY() + TIME_BUBBLE_RADIUS; y += 1) {
-                for (double z = playerPos.getZ() - TIME_BUBBLE_RADIUS; z <= playerPos.getZ() + TIME_BUBBLE_RADIUS; z += 1) {
-                    double distanceSq = player.distanceToSqr(x, y, z);
-                    if (distanceSq <= TIME_BUBBLE_RADIUS * TIME_BUBBLE_RADIUS) {
-                        Vec3 pos = new Vec3(x + 0.5, y + 0.5, z + 0.5);
-                        Vec3 motion = new Vec3((random.nextDouble() - 0.5) * 0.1, (random.nextDouble() - 0.5) * 0.1, (random.nextDouble() - 0.5) * 0.1);
-                        world.addParticle(ParticleTypes.DRIPPING_WATER, pos.x, pos.y, pos.z, motion.x, motion.y, motion.z);
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level world, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        int currentDurability = stack.getDamageValue();
+
+        if (currentDurability < DURABILITY) {
+            if (!world.isClientSide) {
+                // Apply slowness effect to nearby mobs
+                AABB area = new AABB(player.getX() - 5, player.getY() - 2.5, player.getZ() - 5, player.getX() + 5, player.getY() + 2.5, player.getZ() + 5);
+                List<Entity> entities = world.getEntities(null, area);
+                for (Entity entity : entities) {
+                    if (entity instanceof Mob) {
+                        ((Mob) entity).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 1));
                     }
                 }
+
+                // Generate Dragon Breath particles around the player
+                for (int i = 0; i < 50; i++) {
+                    double xOffset = world.random.nextGaussian() * 0.5;
+                    double yOffset = world.random.nextGaussian() * 0.5;
+                    double zOffset = world.random.nextGaussian() * 0.5;
+                    world.addParticle(ParticleTypes.DRAGON_BREATH,
+                            player.getX() + xOffset,
+                            player.getY() + player.getBbHeight() / 2 + yOffset,
+                            player.getZ() + zOffset,
+                            0, 0, 0);
+                }
+
+                // Damage the item
+                stack.hurtAndBreak(1, player, (p_220017_1_) -> {
+                    p_220017_1_.broadcastBreakEvent(hand);
+                });
             }
+
+            player.swing(hand);
+            return InteractionResultHolder.success(stack);
         }
 
-        for (Entity entity : entities) {
-            if (entity instanceof LivingEntity livingEntity) {
-                slowDownEntity(livingEntity);
-            }
-        }
-    }
-
-    private void slowDownEntity(LivingEntity entity) {
-        entity.setDeltaMovement(entity.getDeltaMovement().scale(TIME_SLOW_FACTOR));
-        // You may need to adjust other attributes of the entity depending on your requirements
+        return InteractionResultHolder.fail(stack);
     }
 }
