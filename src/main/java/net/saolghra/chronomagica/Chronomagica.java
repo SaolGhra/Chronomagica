@@ -15,6 +15,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.saolghra.chronomagica.block.ModBlocks;
+import net.saolghra.chronomagica.effect.ModEffects;
 import net.saolghra.chronomagica.item.ModCreativeModeTabs;
 import net.saolghra.chronomagica.item.ModItems;
 import org.slf4j.Logger;
@@ -36,6 +37,9 @@ public class Chronomagica {
         // Registers Items and blocks into the game.
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        // Registers effects
+        ModEffects.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

@@ -40,7 +40,7 @@ public class ChronoCrystalItem extends Item {
         int currentDurability = stack.getDamageValue();
 
         if (currentDurability < DURABILITY) {
-            if (!world.isClientSide) {
+            if (!world.isClientSide()) {
                 // Apply slowness effect to nearby mobs
                 AABB area = new AABB(player.getX() - 5, player.getY() - 2.5, player.getZ() - 5, player.getX() + 5, player.getY() + 2.5, player.getZ() + 5);
                 List<Entity> entities = world.getEntities(null, area);
@@ -50,16 +50,20 @@ public class ChronoCrystalItem extends Item {
                     }
                 }
 
-                // Generate Dragon Breath particles around the player
-                for (int i = 0; i < 50; i++) {
-                    double xOffset = world.random.nextGaussian() * 0.5;
-                    double yOffset = world.random.nextGaussian() * 0.5;
-                    double zOffset = world.random.nextGaussian() * 0.5;
-                    world.addParticle(ParticleTypes.DRAGON_BREATH,
-                            player.getX() + xOffset,
-                            player.getY() + player.getBbHeight() / 2 + yOffset,
-                            player.getZ() + zOffset,
-                            0, 0, 0);
+                // Generate circle of particles around the player
+                int count = 20;
+                double radius = 2.0;
+                for (int i = 0; i < count; i++) {
+                    double angle = Math.PI * 2 * i / count;
+                    double xOffset = Math.cos(angle) * radius;
+                    double zOffset = Math.sin(angle) * radius;
+                    double x = player.getX() + xOffset;
+                    double y = player.getY() + player.getBbHeight() / 2;
+                    double z = player.getZ() + zOffset;
+                    double xSpeed = 0;
+                    double ySpeed = 0;
+                    double zSpeed = 0;
+                    world.addParticle(ParticleTypes.DRAGON_BREATH, x, y, z, xSpeed, ySpeed, zSpeed);
                 }
 
                 // Damage the item
