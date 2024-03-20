@@ -10,6 +10,8 @@
   "item.chronomagica.twig": "Twig",
 
   "item.chronomagica.metal_detector": "Metal Detector",
+  "tooltip.chronomagica.metal_detector.tooltip": "Finds valuables underground!",
+
   "item.chronomagica.chrono_crystal": "Chrono Crystal",
 
   "block.chronomagica.sapphire_block": "Sapphire Block",
