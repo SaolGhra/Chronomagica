@@ -27,6 +27,9 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.CHRONA.get());
                         pOutput.accept(ModItems.RAW_CHRONA.get());
 
+                        // Fuel
+                        pOutput.accept(ModItems.TWIG.get());
+
                         // Blocks
                         pOutput.accept(ModBlocks.SAPPHIRE_BLOCK.get());
                         pOutput.accept(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
