@@ -9,13 +9,6 @@ Chronomagica is a Minecraft mod that focuses on time manipulation. It allows pla
 - Time-based challenges: Encounter time-related puzzles, quests, and events that require strategic use of your time manipulation powers.
 - Compatibility: Chronomagica is designed to work with popular Minecraft mod loaders such as Forge or Fabric.
 
-## Installation
-
-1. Download and install the latest version of Minecraft Forge (or Fabric) for your Minecraft version.
-2. Download the Chronomagica mod JAR file from the releases section of the GitHub repository.
-3. Place the downloaded JAR file into the mods folder of your Minecraft installation directory.
-4. Launch Minecraft and enjoy the time-bending adventures of Chronomagica!
-
 ## Contributing
 
 We welcome contributions from the Minecraft modding community. If you'd like to contribute to Chronomagica, please follow the guidelines outlined in the CONTRIBUTING.md file.
